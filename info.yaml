@@ -1,6 +1,6 @@
 # Tiny Tapeout project information
 project:
-  title:        "tt_um_ajr_bang"      # Project title
+  title:        "tt_um_ajr_song_bang"      # Project title
   author:       "JVJK"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "AJR's Bang! in asic midi!"      # One line description of what your project does
