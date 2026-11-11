@@ -96,7 +96,7 @@ module tone_gen (
     end
 endmodule
 
-module tt_um_ajr_bang (
+module tt_um_bobert3d-jvjk-ajr! (
     input  wire [7:0] ui_in,    // ui_in = Play (1) / Pause (0)
     output wire [7:0] uo_out,   // 8 Melodic Instrument Audio Channels
     input  wire [7:0] uio_in,
@@ -7117,4 +7117,5 @@ module tt_um_ajr_bang (
     assign uio_out[7] = ui_in ? drum_trig7 : 1'b0;
 
     assign uio_oe = 8'b11111111;
+    wire _unused = &{ena, uio_in, ui_in[7:1], 1'b0};
 endmodule
