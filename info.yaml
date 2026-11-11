@@ -1,17 +1,17 @@
 # Tiny Tapeout project information
 project:
-  title:        ""      # Project title
-  author:       ""      # Your name
+  title:        "tt_um_ajr_bang"      # Project title
+  author:       "JVJK"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  ""      # One line description of what your project does
+  description:  "AJR's Bang! in asic midi!"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 340x160 uM.
   tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 3x4 or 4x4
 
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_example"
+  top_module:  "tt_um_bobert3d_jvjk_ajrbang"
 
   # List your project's source files here.
   # Source files must be in ./src and you must list each source file separately, one per line.
@@ -22,8 +22,7 @@ project:
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
-  # Inputs
-  ui[0]: ""
+  ui[0]: "Play / Pause (1 = Play, 0 = Pause)"
   ui[1]: ""
   ui[2]: ""
   ui[3]: ""
@@ -32,25 +31,24 @@ pinout:
   ui[6]: ""
   ui[7]: ""
 
-  # Outputs
-  uo[0]: ""
-  uo[1]: ""
-  uo[2]: ""
-  uo[3]: ""
-  uo[4]: ""
-  uo[5]: ""
-  uo[6]: ""
-  uo[7]: ""
+  uo[0]: "Ch 0: 8-Bit Sawtooth"
+  uo[1]: "Ch 1: 808 Bass"
+  uo[2]: "Ch 2: Acoustic Guitar"
+  uo[3]: "Ch 3: Pizzicato"
+  uo[4]: "Ch 4: Cello (Classic) 2"
+  uo[5]: "Ch 5: Xylophone"
+  uo[6]: "Ch 6: Violin (Classic)"
+  uo[7]: "Ch 7: Cello (Classic)"
 
-  # Bidirectional pins
-  uio[0]: ""
-  uio[1]: ""
-  uio[2]: ""
-  uio[3]: ""
-  uio[4]: ""
-  uio[5]: ""
-  uio[6]: ""
-  uio[7]: ""
+  uio[0]: "Drum 0: Electric Drum Kit"
+  uio[1]: "Drum 1: Electric Drum Kit 2"
+  uio[2]: "Drum 2: Electric Drum Kit 3"
+  uio[3]: "Drum 3: Electric Drum Kit 4"
+  uio[4]: "Drum 4: Electric Drum Kit 5"
+  uio[5]: "Drum 5: 2023 Drum Kit 2"
+  uio[6]: "Drum 6: 2023 Drum Kit 3"
+  uio[7]: "Drum 7: 2023 Drum Kit"
 
 # Do not change!
 yaml_version: 6
+
