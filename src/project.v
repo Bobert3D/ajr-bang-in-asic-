@@ -1,3 +1,5 @@
+`default_nettype none
+
 module tone_gen (
     input  wire       clk,
     input  wire       rst_n,
@@ -97,7 +99,7 @@ module tone_gen (
 endmodule
 
 module tt_um_bobert3d_jvjk_ajrbang (
-    input  wire [7:0] ui_in,    // ui_in = Play (1) / Pause (0)
+    input  wire [7:0] ui_in,    // ui_in[0] = Play (1) / Pause (0)
     output wire [7:0] uo_out,   // 8 Melodic Instrument Audio Channels
     input  wire [7:0] uio_in,
     output wire [7:0] uio_out,  // 8 Drum Trigger Channels
@@ -114,7 +116,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
         if (!rst_n) begin
             tempo_cnt <= 24'd0;
             step      <= 11'd0;
-        end else if (ui_in) begin
+        end else if (ui_in[0]) begin
             if (tempo_cnt >= 24'd5357143) begin
                 tempo_cnt <= 24'd0;
                 step      <= (step >= 11'd1599) ? 11'd0 : step + 11'd1;
@@ -5230,7 +5232,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig0 = 1'b0;
         endcase
     end
-    assign uio_out[0] = ui_in ? drum_trig0 : 1'b0;
+    assign uio_out[0] = ui_in[0] ? drum_trig0 : 1'b0;
 
     // Drum Channel 1 (MIDI Track 5)
     reg drum_trig1;
@@ -5633,7 +5635,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig1 = 1'b0;
         endcase
     end
-    assign uio_out[1] = ui_in ? drum_trig1 : 1'b0;
+    assign uio_out[1] = ui_in[0] ? drum_trig1 : 1'b0;
 
     // Drum Channel 2 (MIDI Track 6)
     reg drum_trig2;
@@ -5673,7 +5675,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig2 = 1'b0;
         endcase
     end
-    assign uio_out[2] = ui_in ? drum_trig2 : 1'b0;
+    assign uio_out[2] = ui_in[0] ? drum_trig2 : 1'b0;
 
     // Drum Channel 3 (MIDI Track 7)
     reg drum_trig3;
@@ -5724,7 +5726,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig3 = 1'b0;
         endcase
     end
-    assign uio_out[3] = ui_in ? drum_trig3 : 1'b0;
+    assign uio_out[3] = ui_in[0] ? drum_trig3 : 1'b0;
 
     // Drum Channel 4 (MIDI Track 8)
     reg drum_trig4;
@@ -6375,7 +6377,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig4 = 1'b0;
         endcase
     end
-    assign uio_out[4] = ui_in ? drum_trig4 : 1'b0;
+    assign uio_out[4] = ui_in[0] ? drum_trig4 : 1'b0;
 
     // Drum Channel 5 (MIDI Track 13)
     reg drum_trig5;
@@ -6571,7 +6573,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig5 = 1'b0;
         endcase
     end
-    assign uio_out[5] = ui_in ? drum_trig5 : 1'b0;
+    assign uio_out[5] = ui_in[0] ? drum_trig5 : 1'b0;
 
     // Drum Channel 6 (MIDI Track 14)
     reg drum_trig6;
@@ -6940,7 +6942,7 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig6 = 1'b0;
         endcase
     end
-    assign uio_out[6] = ui_in ? drum_trig6 : 1'b0;
+    assign uio_out[6] = ui_in[0] ? drum_trig6 : 1'b0;
 
     // Drum Channel 7 (MIDI Track 15)
     reg drum_trig7;
@@ -7114,7 +7116,8 @@ module tt_um_bobert3d_jvjk_ajrbang (
             default: drum_trig7 = 1'b0;
         endcase
     end
-    assign uio_out[7] = ui_in ? drum_trig7 : 1'b0;
+    assign uio_out[7] = ui_in[0] ? drum_trig7 : 1'b0;
 
     assign uio_oe = 8'b11111111;
+    wire _unused = &{ena, uio_in, ui_in[7:1], 1'b0};
 endmodule
